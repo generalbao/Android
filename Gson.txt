@@ -1,0 +1,50 @@
+2016年12月19日21:52:15
+
+安装gson  把下载好的gson压缩包copyapp中的lib库
+对于较为传统的Json解析来说，google共享的开源Gson在解析速度和所使用的内存在有着明显的优势，虽然说阿里巴巴也提供了fastgson包，
+但是它跟Gson的处理速度大同小异，只是底层实现的原理不同，在这里就来学习一下怎么使用google的开源包Gson（在学习之间你应该下载好google
+gson包）
+
+       Gson的解析非常简单，但是它的解析规则是必须有一个bean文件，这个bean文件的内容跟JSon数据类型是一一对应的
+       
+       Gson有两个重要的方法，一个就是tojson，一个就是fromjson。
+       ！！！！！1
+tojson就是将bean里面的内容转换为json内容
+
+user u=new user("zhangsan",19);
+
+Gson g=new Gson();
+System.out.println(g.toJson(l));
+
+//打印结果是{"name":"zhangsan","age":19}
+
+
+
+222222     一一对应！！！！！
+fromjson，从我们的Json对象封装出一个一个的bean对象
+user u=new user();
+     Gson g=new Gson();
+     u=g.fromJson("{name:'zhangsan',age:12}", user.class);
+
+   System.out.println(u.getName()+"      "+u.getAge());
+   
+   public class user {
+private String name;
+private int age;
+public String getName() {
+return name;
+}
+public void setName(String name) {
+this.name = name;
+}
+public int getAge() {
+return age;
+}
+public void setAge(int age) {
+this.age = age;
+}
+public user(String name, int age) {
+super();
+this.name = name;
+this.age = age;
+}
