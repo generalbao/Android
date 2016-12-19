@@ -1,0 +1,30 @@
+2016年12月19日21:56:57
+
+111
+androidstudio 引入okhttp
+FILE--->PROJECT structure -->app -->dependencies--> +号--》library xx(第一个)-->输入okhttp-->选择com.squareup.okhttp:okhttp--》点击ok
+
+
+二、okhttp的使用
+1、首先构造一个OkHttpClient对象，
+OkHttpClient okHttpClient = new OkHttpClient();
+
+2、然后，创建一个Request对象，
+Request request = new Request.Builder().url(url).get().build();
+
+注意其中括号中的url就是你请求数据的url
+
+3、最后OkHttpClient对象去构造得到一个Call对象，去异步请求（enqueue），
+okHttpClient.newCall(request).enqueue(new Callback() {
+
+ public void onFailure(Request request, IOException e)
+    {
+    }
+
+    @Override
+    public void onResponse(final Response response) throws IOException
+    {
+            String htmlStr =  response.body().string();    //返回的结果
+    }
+}）；
+
