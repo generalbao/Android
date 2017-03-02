@@ -1,0 +1,18 @@
+
+
+1.Build -> Generate Signed APK...，
+
+2.假设这里没有打过apk包，点击Create new
+
+这里只要输入几个必要项
+Key store path（生产key文件的保存路径 ）
+
+Key store password（key 存储密码）
+
+Key alias（key别名）
+
+Key password（key密码）
+
+可以输入机构或个人名字
+
+点击OK，点击finish，apk包就生成好了
