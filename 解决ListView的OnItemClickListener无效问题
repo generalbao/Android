@@ -1,0 +1,14 @@
+当我们自定义ListView的item时，常常会加入诸如Button，ImageButton，CheckBox等控件，这时候我们会发现:ListView.setOnItemClickListener(new ...)
+没有效果，点击Item没有反应，那是因为此时的焦点已经被子view获取(Button,ImageButton...)，所以响应点击操作的并不是Item。
+解决方案：
+
+descendantFocusability
+
+该属性是当一个为view获取焦点时，定义viewGroup和其子控件两者之间的关系。
+属性的值有三种：
+
+beforeDescendants：viewgroup会优先其子类控件而获取到焦点
+afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点
+blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点
+通常我们用到的是blocksDescendants，在Item的根布局设置
+android:descendantFocusability="blocksDescendants"
