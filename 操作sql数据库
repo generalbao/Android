@@ -1,0 +1,14 @@
+2017年6月15日20:52:05
+在你的XXXActivity下
+ SQLiteDatabase db = this.openOrCreateDatabase("mp", MODE_PRIVATE, null);
+ db.execSQL("crete table test(_id integer primary key autoincrement,name varchar)");         // 注意和mysql稍微不一样
+ 
+ 在命令行查看数据库
+ adb
+ 1 把 android安装目录下的 platform-tool加入path环境变量,
+ 2 adb shell
+ 3 cd data/data/com.xxxx(这个是你的包名)/database
+ 4 .schema 列出所有数据库
+    .table 列出所有table
+ sqlite3 test 进入test数据库
+ 4 然后就可以操作table   比如 select * from xxx
